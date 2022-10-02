@@ -38,6 +38,39 @@ export const getUserDetails = async(req,res) => {
     }
 }
 
+
+// Edit user
+export const editUser = async(req,res) => {
+    const id = req.params.id
+    const {_id, password} = req.body
+    const userStatus = await userModel.findById(_id)
+    const isAdmin = userStatus.isAdmin
+    if(id === _id || isAdmin === true){
+        try {
+            if(password){
+                const salt = await bcrypt.genSalt(10)
+                req.body.password = await bcrypt.hash(password, salt)
+            }   
+                const {_id, ...details} = req.body
+                const user = await userModel.findByIdAndUpdate(id, details, {new: true})
+                res.status(200).json({
+                    message: "data updated",
+                    data: user
+                })
+        
+        } catch (error) {
+            res.status(500).json({
+                message: error.message
+            })
+        }
+    }else{
+        res.status(400).json({
+            message: "Forbiden Access"
+        })
+    }
+}
+
+
 // Delete User
 
 export const deleteUser = async(req,res) => {

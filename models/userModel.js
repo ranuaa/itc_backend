@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+
+
+
 const userSchema = mongoose.Schema(
     {
         userName: {
@@ -12,7 +15,6 @@ const userSchema = mongoose.Schema(
         },
         email : {
             type: String,
-            required: true
         },
         isAdmin : {
             type: Boolean,
@@ -20,8 +22,12 @@ const userSchema = mongoose.Schema(
         },
         profilePicture: String,
         careerHistory: [],
-        adress: String,
-        phone: Number
+        adress: {
+            type: String
+        },
+        phone: {
+            type: Number
+        }
     }
 );
 
