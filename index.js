@@ -23,4 +23,4 @@ mongoose.connect(process.env.MONGO_DB)
 
 app.use('/auth', AuthRouter)
 app.use('/users', UserRouter)
-app.use('/absen', AbsensiRouter)
+app.use('/absensi', AbsensiRouter)
