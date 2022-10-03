@@ -6,6 +6,7 @@ import cors from 'cors'
 import AuthRouter from './Routes/AuthRoute.js'
 import UserRouter from './Routes/userRoutes.js'
 import AbsensiRouter from './Routes/absensiRoute.js'
+import AppraisalRouter from './Routes/appraisalRoute.js'
 
 
 
@@ -24,3 +25,4 @@ mongoose.connect(process.env.MONGO_DB)
 app.use('/auth', AuthRouter)
 app.use('/users', UserRouter)
 app.use('/absensi', AbsensiRouter)
+app.use('/appraisal', AppraisalRouter)
