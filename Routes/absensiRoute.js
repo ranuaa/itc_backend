@@ -1,7 +1,5 @@
 import express from 'express'
 import { addAbsensi, deleteAbsensi, editAbsensi, getAllAbsensi, getSingleAbsensi } from '../Controllers/absensiController.js'
-import moment from 'moment'
-import absensiModel from '../models/absensiModel.js'
 
 const router = express.Router()
 
